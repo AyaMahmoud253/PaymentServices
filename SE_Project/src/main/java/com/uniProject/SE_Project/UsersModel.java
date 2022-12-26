@@ -49,11 +49,6 @@ public class UsersModel {
         this.walletAmount = walletAmount;
     }
 
-    public void addTowallet(double added,credit p){
-        double l=(p.getLimit())-(added);
-        p.setLimit(l);
-        double amount =getWalletAmount() +added ;
-        setWalletAmount(amount);
-     }
+
 }
 

@@ -25,7 +25,7 @@ public class controller {
     }
 
 
-    @RequestMapping(value = "/add-user", method = RequestMethod.POST)
+    @RequestMapping(value = "/sign-in", method = RequestMethod.POST)
     public void addUser(@RequestBody UsersModel userRecord)
     {
         getservice.signIn(userRecord);

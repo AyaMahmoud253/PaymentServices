@@ -19,6 +19,7 @@ import java.util.List;
 
 @RestController
 public class PaymentController {
+	@Autowired
 	controller usercontrol;
 	credit c; 
 	cash cah;
@@ -34,8 +35,8 @@ public class PaymentController {
 	}
 
 	 @RequestMapping(value = "/pay",method = RequestMethod.POST)
-	 public String   SetAmount(@PathParam ("amount") double amount ,@PathParam ("method") String pmethod,
-			 @PathParam ("id") Integer id) {
+	 public String   SetAmount(@RequestBody  double amount ,@RequestBody String pmethod,
+							   @RequestBody  Integer id) {
 		 if(pmethod=="credit") {
 			v=l.getuser(id);
 			return  c.Pay(amount,v); 
