@@ -1,6 +1,5 @@
 package Cost;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -71,19 +70,18 @@ public class DiscountController
     //@RequestMapping(value = "/getamount", method = RequestMethod.GET)
     @GetMapping("/m/{id}")
     @ResponseBody
-    //for try
-    public String getamount(@PathVariable String id){
-    	//double am=  model.getamount()-(0.1*model.getamount());
-    	//model.setamount(am);
-       // return model.getamount(); 
-    	return id;
+    public double getamount(){
+    	double am=  model.getamount()-(0.1*model.getamount());
+    	model.setamount(am);
+        return model.getamount(); 
+    	//return id;
      }
     /*public double calccost( ){
       return model.amount-(0.1*model.amount);
     }*/
-    /*public static void main(String[] args) throws Exception {
-        SpringApplication.run(Functions.class, args);
-   }*/
+    public static void main(String[] args) throws Exception {
+        //SpringApplication.run(Functions.class, args);
+   }
     public void updateView()
     {
         view.printStudentDetails(model.getamount());
