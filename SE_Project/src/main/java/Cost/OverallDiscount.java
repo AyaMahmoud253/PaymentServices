@@ -1,6 +1,14 @@
 package Cost;
 import Services.Services;
-public class OverallDiscount extends Discount{
+class OverallDiscount extends Discount
+{
+	OverallDiscount(Discount discountModel,Services service)
+ {
+  this.discountModel = discountModel;
+  this.service=service;
+ }
+}
+/*public class OverallDiscount extends Discount{
     Cost pay;
     double m;
     public OverallDiscount(Cost pay) {
@@ -14,4 +22,4 @@ public class OverallDiscount extends Discount{
     }
     public double  getcost() {return m;}
     
-}
+}*/

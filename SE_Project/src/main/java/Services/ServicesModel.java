@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 public class ServicesModel {
     private Long id;
     private String serviceName;
-
+   
     public void setId(Long id) {
         this.id = id;
     }

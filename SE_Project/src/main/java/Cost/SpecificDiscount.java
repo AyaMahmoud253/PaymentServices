@@ -1,7 +1,13 @@
 package Cost;
 import Services.Services;
 public class SpecificDiscount extends Discount{
-    Cost payement;
+	SpecificDiscount(Discount discountModel,Services service)
+	 {
+	  this.discountModel = discountModel;
+	  this.service=service;
+	 }
+	}
+    /*Cost payement;
     double m;
     public SpecificDiscount(Cost pay) {
         this.payement = pay;
@@ -13,4 +19,4 @@ public class SpecificDiscount extends Discount{
         return  a-(0.2*a);
     }
     public double  getcost() {return m;}
-}
+}*/

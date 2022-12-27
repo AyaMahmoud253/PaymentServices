@@ -22,7 +22,7 @@ public class logic {
         UserRepository.findAll().forEach(AllUserRecords::add);
         return AllUserRecords;
     }
-
+     
     public void signIn(UsersModel userRecord)
     {
         UserRepository.save(userRecord);
