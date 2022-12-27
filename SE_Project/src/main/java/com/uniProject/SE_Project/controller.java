@@ -59,6 +59,7 @@ public class controller {
     	//amount=model.getamount()-(0.1*model.getamount());
         //model.setamount(amount);      
      }
+    
     //for try
     @RequestMapping(value = "/CheckFristTransactionDiscount/{amount}", method = RequestMethod.GET)
     public double getamount(@PathVariable ("amount") double amount){
