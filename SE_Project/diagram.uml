@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="806.5" y="8.5">Services.MobileRecharge</node>
+    <node x="806.5" y="255.0">Services.Donations</node>
+    <node x="608.5" y="-68.0">Services.Services</node>
+    <node x="-248.0" y="137.5">payment.creditcardInfo</node>
+    <node x="538.0" y="104.0">payment.credit</node>
+    <node x="219.0" y="362.0">payment.PaymentController</node>
+    <node x="-20.0" y="20.0">payment.ordinaryPayment</node>
+    <node x="806.5" y="126.0">Services.InternetPayment</node>
+    <node x="374.0" y="115.0">payment.PayEntity</node>
+    <node x="249.5" y="255.0">payment.cash</node>
+    <node x="0.5" y="255.0">payment.walletPay</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Services.MobileRecharge" target="Services.Services" relationship="REALIZATION">
+      <point x="-82.0" y="-0.0" />
+      <point x="789.0" y="47.0" />
+      <point x="789.0" y="-41.0" />
+      <point x="82.0" y="-0.0" />
+    </edge>
+    <edge source="payment.PaymentController" target="payment.credit" relationship="TO_ONE">
+      <point x="0.0" y="-60.5" />
+      <point x="359.0" y="352.0" />
+      <point x="234.5" y="352.0" />
+      <point x="234.5" y="245.0" />
+      <point x="647.5" y="245.0" />
+      <point x="0.0" y="60.5" />
+    </edge>
+    <edge source="payment.credit" target="payment.ordinaryPayment" relationship="REALIZATION">
+      <point x="0.0" y="-60.5" />
+      <point x="647.5" y="94.0" />
+      <point x="89.5" y="94.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="payment.PaymentController" target="payment.cash" relationship="TO_ONE">
+      <point x="0.0" y="-60.5" />
+      <point x="0.0" y="38.5" />
+    </edge>
+    <edge source="Services.InternetPayment" target="Services.Services" relationship="REALIZATION">
+      <point x="-82.0" y="-0.0" />
+      <point x="789.0" y="164.5" />
+      <point x="789.0" y="-41.0" />
+      <point x="82.0" y="-0.0" />
+    </edge>
+    <edge source="payment.PaymentController" target="payment.creditcardInfo" relationship="CREATE">
+      <point x="-140.0" y="-0.0" />
+      <point x="-89.0" y="422.5" />
+      <point x="-0.0" y="27.0" />
+    </edge>
+    <edge source="payment.walletPay" target="payment.ordinaryPayment" relationship="REALIZATION">
+      <point x="0.0" y="-38.5" />
+      <point x="110.0" y="94.0" />
+      <point x="89.5" y="94.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="payment.PaymentController" target="payment.creditcardInfo" relationship="TO_ONE">
+      <point x="-140.0" y="15.0" />
+      <point x="-104.0" y="437.5" />
+      <point x="-15.0" y="27.0" />
+    </edge>
+    <edge source="Services.Donations" target="Services.Services" relationship="REALIZATION">
+      <point x="-82.0" y="-0.0" />
+      <point x="789.0" y="293.5" />
+      <point x="789.0" y="-41.0" />
+      <point x="82.0" y="-0.0" />
+    </edge>
+    <edge source="payment.cash" target="payment.ordinaryPayment" relationship="REALIZATION">
+      <point x="0.0" y="-38.5" />
+      <point x="359.0" y="94.0" />
+      <point x="89.5" y="94.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="0.7287784679089027" showDependencies="true" x="690.5" y="-41.0" />
+  <SelectedNodes>
+    <node>Services.Services</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>packageLocal</VISIBILITY>
+</Diagram>
+
