@@ -12,25 +12,50 @@ import com.uniProject.SE_Project.user.Repo;
 import com.uniProject.SE_Project.user.Response;
 import com.uniProject.SE_Project.user.controller;
 import com.uniProject.SE_Project.Services.ServicesModel;
+import com.uniProject.SE_Project.Services.Services;
 @RestController
 @RequestMapping(value = "/Discount")
 public class ControllerDiscount
 {
 	 Response R=new Response();
+	 
     //private Repo DRepository;
 	//@Id
-     // Discount model=new Discount();
+      //Discount model=new Discount();
     //DiscountView view;
 
     /*public void setDiscount(Discount discountModel){
         model.setdiscountModel(discountModel);
      }*/
-
+	 @RequestMapping(value = "/CheckDiscount/{amount}/{TransctionId}/{serviceId}",method = RequestMethod.GET)
+	    public String CheckDiscount(@PathVariable ("amount") double amount,
+	                                @PathVariable ("TransctionId") int TransctionId,@PathVariable ("serviceId") int serviceId){
+		 //Discount d=new Discount(id,amount);
+		 //ServicesModel service=new ServiceModel((long) serviceId);
+		 //service.setId((long) serviceId);
+		 double am=amount-(0.1*amount);
+		 double am2=amount-(0.2*amount);
+		 double am3=amount-(0.3*amount);
+		 if(TransctionId>2||TransctionId<1||serviceId>4||serviceId<1)
+		 {
+			 R.setMessage("Error: Transction ID Must be 1 for Frist transaction 2 for Not Frist transaction and Service ID Must be 1 for Mobile Recharge or 2 for Donations or 3 for InternetPayment and 4 for LandLineServices"); 
+		 }
+		 else if(TransctionId==1&&serviceId==1)
+			 R.setMessage("You input Transaction ID 1 means Frist transaction and Service ID 1 means MobileRecharge Service your cost After Discount "+am3);
+		 else if (TransctionId==1&&serviceId!=1)
+			 R.setMessage("You input Transaction ID 1 means Frist transaction your cost After Discount "+am);
+		 else if (TransctionId==2&&serviceId==1)
+			 R.setMessage("You input Service ID 1 means MobileRecharge Service your cost After Discount "+am2);
+		 else if (TransctionId==2&&serviceId!=1)
+			 R.setMessage("You Have not Discount "+amount);
+		 return R.getMessage();
+	    }
 	 @RequestMapping(value = "/Specificamount/{amount}", method = RequestMethod.GET)
     public String Specificamount(@PathVariable ("amount")double amount){
     	//amount=model.getamount()-(0.1*model.getamount());
         //model.setamount(amount);
         //amount=model.getamount()-(0.1*model.getamount());
+		 
 		 double am=amount-(0.2*amount);
 		 //String S=service;
 		 /*s.setName(service);
