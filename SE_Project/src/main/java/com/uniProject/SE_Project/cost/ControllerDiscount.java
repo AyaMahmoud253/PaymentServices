@@ -17,7 +17,7 @@ import com.uniProject.SE_Project.Services.Services;
 @RequestMapping(value = "/Discount")
 public class ControllerDiscount
 {
-	 Discount o;
+	 Cost o;
 	 Response R=new Response();
 	 @RequestMapping(value = "/CheckDiscountForm",method = RequestMethod.GET)
 	    public String CheckDiscountForm()
@@ -34,12 +34,12 @@ public class ControllerDiscount
 		 }
 		else if (TransctionId==1&&serviceId!=1)
 		 {
-			 o=new Overall();
+			 o=new OverallDiscount();
 			 R.setMessage("You input Transaction ID 1 means Frist transaction your cost After Discount "+o.cost(amount));
 		 }
 		 else if (TransctionId==2&&serviceId==1)
 		 {
-			 o=new Specific();
+			 o=new SpecificDiscount();
 			 R.setMessage("You input Service ID 1 means MobileRecharge Service your cost After Discount "+o.cost(amount));
 		 }
 		 else if(TransctionId==1&&serviceId==1)
@@ -49,7 +49,7 @@ public class ControllerDiscount
 		 }
 		 else if (TransctionId==2&&serviceId!=1)
 		 {
-			 
+			 o=new ConcreteCost(); 
 			 R.setMessage("You Have not Discount "+amount);
 		 }
 		 return R.getMessage();
