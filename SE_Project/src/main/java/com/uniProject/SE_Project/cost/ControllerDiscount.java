@@ -17,80 +17,41 @@ import com.uniProject.SE_Project.Services.Services;
 @RequestMapping(value = "/Discount")
 public class ControllerDiscount
 {
+	 Discount o;
 	 Response R=new Response();
-	 
-    //private Repo DRepository;
-	//@Id
-      //Discount model=new Discount();
-    //DiscountView view;
-
-    /*public void setDiscount(Discount discountModel){
-        model.setdiscountModel(discountModel);
-     }*/
+	 @RequestMapping(value = "/CheckDiscountForm",method = RequestMethod.GET)
+	    public String CheckDiscountForm()
+	    {
+		 R.setMessage("for CheckDiscountin url after port-> Discount/CheckDiscount/{amount}/{TransctionId}/{serviceId}"+"\n"+"\n"+" Transction ID Must be"+"\n"+ " 1 for Frist transaction"+"\n"+" 2 for Not Frist transaction"+"\n"+"\n"+" Service ID Must be"+"\n"+" 1 for Mobile Recharge "+"\n"+" 2 for Donations "+"\n"+" 3 for InternetPayment "+"\n"+" 4 for LandLineServices"); 
+		 return R.getMessage();
+	    }
 	 @RequestMapping(value = "/CheckDiscount/{amount}/{TransctionId}/{serviceId}",method = RequestMethod.GET)
 	    public String CheckDiscount(@PathVariable ("amount") double amount,
 	                                @PathVariable ("TransctionId") int TransctionId,@PathVariable ("serviceId") int serviceId){
-		 //Discount d=new Discount(id,amount);
-		 //ServicesModel service=new ServiceModel((long) serviceId);
-		 //service.setId((long) serviceId);
-		 double am=amount-(0.1*amount);
-		 double am2=amount-(0.2*amount);
-		 double am3=amount-(0.3*amount);
 		 if(TransctionId>2||TransctionId<1||serviceId>4||serviceId<1)
 		 {
 			 R.setMessage("Error: Transction ID Must be 1 for Frist transaction 2 for Not Frist transaction and Service ID Must be 1 for Mobile Recharge or 2 for Donations or 3 for InternetPayment and 4 for LandLineServices"); 
 		 }
-		 else if(TransctionId==1&&serviceId==1)
-			 R.setMessage("You input Transaction ID 1 means Frist transaction and Service ID 1 means MobileRecharge Service your cost After Discount "+am3);
-		 else if (TransctionId==1&&serviceId!=1)
-			 R.setMessage("You input Transaction ID 1 means Frist transaction your cost After Discount "+am);
+		else if (TransctionId==1&&serviceId!=1)
+		 {
+			 o=new Overall();
+			 R.setMessage("You input Transaction ID 1 means Frist transaction your cost After Discount "+o.cost(amount));
+		 }
 		 else if (TransctionId==2&&serviceId==1)
-			 R.setMessage("You input Service ID 1 means MobileRecharge Service your cost After Discount "+am2);
+		 {
+			 o=new Specific();
+			 R.setMessage("You input Service ID 1 means MobileRecharge Service your cost After Discount "+o.cost(amount));
+		 }
+		 else if(TransctionId==1&&serviceId==1)
+		 {
+			 double am3=amount-(0.3*amount);
+			 R.setMessage("You input Transaction ID 1 means Frist transaction and Service ID 1 means MobileRecharge Service your cost After Discount "+am3);
+		 }
 		 else if (TransctionId==2&&serviceId!=1)
+		 {
+			 
 			 R.setMessage("You Have not Discount "+amount);
+		 }
 		 return R.getMessage();
 	    }
-	 @RequestMapping(value = "/Specificamount/{amount}", method = RequestMethod.GET)
-    public String Specificamount(@PathVariable ("amount")double amount){
-    	//amount=model.getamount()-(0.1*model.getamount());
-        //model.setamount(amount);
-        //amount=model.getamount()-(0.1*model.getamount());
-		 
-		 double am=amount-(0.2*amount);
-		 //String S=service;
-		 /*s.setName(service);
-		 if(s.getserviceName()=="MOBILE")
-		 {R.setMessage("you cost " +am);}
-		 else
-		 {R.setMessage("you cost "+amount);}*/
-		 
-		 R.setMessage("you cost before discount: "+amount+" and you cost after discount: "+am);
-		 return R.getMessage();
-        //return model.getamount()-(0.2*model.getamount());
-     }
-	 @RequestMapping(value = "/Overallamount/{amount}", method = RequestMethod.GET)
-    public String Overallamount(@PathVariable ("amount")double amount){
-    	//amount=model.getamount()-(0.2*model.getamount());
-        //model.setamount(amount);
-		 double am=amount-(0.1*amount);
-		 R.setMessage("you cost before discount: "+amount+" and you cost after discount: "+am);
-		 return R.getMessage();
-		 
-     }
-	 @RequestMapping(value = "/SpecificOverallamount/{amount}", method = RequestMethod.GET)
-    public String SpecificOverallamount(@PathVariable ("amount")double amount){
-    	//amount=model.getamount()-(0.3*model.getamount());
-        //model.setamount(amount);
-		 double am=amount-(0.3*amount);
-		 R.setMessage("you cost before discount: "+amount+" and you cost after discount: "+am);
-		 return R.getMessage();
-     }
-    /*@RequestMapping(value = "/getamount/{amount}", method = RequestMethod.GET)
-    public double getamount(@PathVariable ("amount") double amount){
-    	//double am=  model.getamount()-(0.1*model.getamount());
-    	//model.setamount(am);
-        return amount-(0.1*amount);
-    	//return amount;
-    	//return id;
-     }*/
 }
