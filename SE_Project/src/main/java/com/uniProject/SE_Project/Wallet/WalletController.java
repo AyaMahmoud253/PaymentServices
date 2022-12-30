@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/Wallet")
+@RequestMapping(value = "/user/Wallet")
 public class WalletController {
 	Wallet w;
 	@RequestMapping(value = "/addToWallet/{added}",method = RequestMethod.GET)

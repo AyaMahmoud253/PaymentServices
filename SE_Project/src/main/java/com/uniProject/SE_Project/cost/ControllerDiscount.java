@@ -14,7 +14,7 @@ import com.uniProject.SE_Project.user.controller;
 import com.uniProject.SE_Project.Services.ServicesModel;
 import com.uniProject.SE_Project.Services.Services;
 @RestController
-@RequestMapping(value = "/Discount")
+@RequestMapping(value = "/user/Discount")
 public class ControllerDiscount
 {
 	 Cost o;
@@ -52,7 +52,7 @@ public class ControllerDiscount
 		 else if (TransctionId==2&&c.getServiceId()!=1)
 		 {
 			 o=new ConcreteCost(); 
-			 R.setMessage("You Have not Discount "+amount);
+			 R.setMessage("You Have not Discount Your cost "+amount);
 		 }
 		 return R.getMessage();
 	    }
