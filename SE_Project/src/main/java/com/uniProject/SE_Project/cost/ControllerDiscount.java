@@ -36,18 +36,18 @@ public class ControllerDiscount
 		 }
 		else if (TransctionId==1&&c.getServiceId()!=1)
 		 {
-			 o=new OverallDiscount();
-			 R.setMessage("You input Transaction ID 1 means Frist transaction your cost After Discount "+o.cost(amount));
+			 o=new OverallDiscount(o);
+			 R.setMessage("You input Transaction ID 1 means Frist transaction your cost After (10%) Discount  "+o.cost(amount));
 		 }
 		 else if (TransctionId==2&&c.getServiceId()==1)
 		 {
-			 o=new SpecificDiscount();
-			 R.setMessage("You input Service ID 1 means MobileRecharge Service your cost After Discount "+o.cost(amount));
+			 o=new SpecificDiscount(o);
+			 R.setMessage("You input Service ID 1 means MobileRecharge Service your cost After (20%) Discount "+o.cost(amount));
 		 }
 		 else if(TransctionId==1&&c.getServiceId()==1)
 		 {
 			 double am3=amount-(0.3*amount);
-			 R.setMessage("You input Transaction ID 1 means Frist transaction and Service ID 1 means MobileRecharge Service your cost After Discount "+am3);
+			 R.setMessage("You input Transaction ID 1 means Frist transaction and Service ID 1 means MobileRecharge Service your cost After (30%) Discount "+am3);
 		 }
 		 else if (TransctionId==2&&c.getServiceId()!=1)
 		 {

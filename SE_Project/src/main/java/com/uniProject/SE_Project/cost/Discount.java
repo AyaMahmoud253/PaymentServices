@@ -1,5 +1,10 @@
 package com.uniProject.SE_Project.cost;
-abstract public class Discount extends Cost
+public abstract class Discount implements  Cost
 {
-	abstract public double cost(double amount);
+	protected Cost decoratedCost;
+    public Discount(Cost decoratedShape)
+    {
+        this.decoratedCost=decoratedCost;
+    }    
+    abstract public double cost(double amount);
 }
