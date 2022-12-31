@@ -1,5 +1,7 @@
 package com.uniProject.SE_Project.cost;
 import com.uniProject.SE_Project.Services.Services;
+import com.uniProject.SE_Project.Services.ServicesModel;
+
 public class OverallDiscount extends Discount
 {
    
@@ -8,7 +10,8 @@ public class OverallDiscount extends Discount
 		}
  
 	@Override
-	public double cost(double amount) {
+	public double cost(double amount,ServicesModel s,int serviceId){
+		s.setId((long) serviceId);
 		return amount-0.1*amount;
 	}
 	
