@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/*
 @Service
 public class serviceProviderLogic {
 
@@ -27,4 +27,4 @@ public class serviceProviderLogic {
         pRepo.save(userRecord);
     }
 
-}
+}*/

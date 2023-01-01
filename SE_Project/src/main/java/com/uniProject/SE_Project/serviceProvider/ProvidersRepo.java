@@ -19,7 +19,7 @@ public class ProvidersRepo{
     	providers.add(new Orange());
     	providers.add(new Schools());
     	providers.add(new Vodafone());
-    	providers.add(new We());
+    	//providers.add(new We());
     	
     }
     
