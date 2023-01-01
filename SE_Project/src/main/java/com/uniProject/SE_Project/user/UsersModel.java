@@ -11,7 +11,7 @@ public class UsersModel {
     private String email;
     private double walletAmount ;
 
-
+    
  
    
     public String getName() { return name; }
