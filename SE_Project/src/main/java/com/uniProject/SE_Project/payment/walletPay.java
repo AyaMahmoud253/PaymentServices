@@ -6,21 +6,22 @@ import org.springframework.stereotype.Service;
 import com.uniProject.SE_Project.user.controller;
 import com.uniProject.SE_Project.user.Response;
 
-@Service
-public class walletPay  {
+
+public class walletPay implements ordinaryPayment {
 
     Response R=new Response();
 
 	
 
-	public String Pay(double amount,int walletA) {
-        if (walletA>amount) {
+    @Override
+	public String  Pay(double amount) {
+		R.setMessage("you pay cash ");
+		/**if (walletA>amount) {
             double newWalletAmount = walletA - amount;
             R.setMessage("you paid"+amount);
         }
         else {
-        	R.setMessage("Not Enough Money in your Wallet");
-        }
+        	R.setMessage("Not Enough Money in your Wallet");}**/
 		return R.getMessage();
 	}
 

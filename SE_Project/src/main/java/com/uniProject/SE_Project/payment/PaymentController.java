@@ -17,7 +17,12 @@ import com.uniProject.SE_Project.payment.PayEntity;
 import com.uniProject.SE_Project.payment.credit;
 import com.uniProject.SE_Project.payment.cash;
 import com.uniProject.SE_Project.payment.walletPay;
+import com.uniProject.SE_Project.serviceProvider.ProvidersRepo;
+import com.uniProject.SE_Project.serviceProvider.ServiceProvider;
+
 import java.util.List;
+import java.util.Map;
+
 import com.uniProject.SE_Project.user.Response;
 import com.uniProject.SE_Project.payment.creditcardInfo;
 @RestController
@@ -26,27 +31,46 @@ import com.uniProject.SE_Project.payment.creditcardInfo;
 public class PaymentController {
 
     Response R=new Response();
-    credit c=new credit();
-    cash cah=new cash();
-    walletPay walletP=new walletPay();
-    @RequestMapping(value = "/pay-credit/{amount}",method = RequestMethod.GET)
-    public String paycredit(@PathVariable ("amount") double amount){
-        return c.Pay(amount);
+    ordinaryPayment op;
+    ProvidersRepo pRepo ;
+    @Autowired
+    public PaymentController(ProvidersRepo pRe) {
+    	pRepo = pRe;
     }
-    @RequestMapping(value = "/test",method = RequestMethod.GET)
-    public String d(){
-        R.setMessage("dd");
-        return R.getMessage();
+    @RequestMapping(value = "/pay/{paymentMethod}",method = RequestMethod.POST)
+    public String paycredit(@PathVariable ("paymentMethod") String pMethod,@RequestBody Map<String,Object> form ){
+    	if(pMethod.toUpperCase() == "WALLET")
+    	{
+    		op = new walletPay();
+    	}
+    	else if(pMethod.toUpperCase() == "CASH") {
+    		op = new cash();
+    		System.out.println("else if");
+    	}
+    	else 
+    		op = new credit();
+    		System.out.println(pMethod);
+    	Integer pID = Integer.parseInt(form.get("provider").toString());
+    	ServiceProvider serviceProviderEntity = pRepo.findById(pID);
+    	
+    	if(!(serviceProviderEntity.checkForm(form))){
+    		return serviceProviderEntity.getReqFields();
+    	}
+    	serviceProviderEntity.handle(form);
+    	double amount = Double.parseDouble(form.get("Amount").toString());
+    	if(pMethod.toUpperCase() == "WALLET")
+    	{
+    		op = new walletPay();
+    	}
+    	else if(pMethod.toUpperCase() == "CASH") {
+    		op = new cash();
+    		System.out.println("else if");
+    	}
+    	else 
+    		op = new credit();
+    		System.out.println(pMethod);
+    	
+        return op.Pay(amount);
     }
-
-    @RequestMapping(value = "/pay-cash",method = RequestMethod.GET)
-    public String paycash(){
-        return cah.Pay();
-    }
-    @RequestMapping(value = "/pay-wallet/{amount}/{walletA}",method = RequestMethod.GET)
-    public String paywithWallet(@PathVariable ("amount") double amount,
-                                @PathVariable ("walletA") int w){
-        return walletP.Pay(amount,w);
-    }
-
+   
 }

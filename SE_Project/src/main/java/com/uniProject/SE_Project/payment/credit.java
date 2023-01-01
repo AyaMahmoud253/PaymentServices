@@ -3,23 +3,18 @@ import com.uniProject.SE_Project.user.UsersModel;
 import com.uniProject.SE_Project.user.Response;
 import org.springframework.stereotype.Service;
 
-@Service
-public class credit {
+
+public class credit implements ordinaryPayment{
 
 	Response R=new Response();
-	private double limit=900000;
+	
 	 
-	public String  Pay(double amount ) {
-		double result =limit-amount;
-		R.setMessage("you paid amount"+amount+"your new balance"+result);
+	@Override
+	public String  Pay(double amount) {
+		R.setMessage("you pay credit ");
 		
-		return R.getMessage(); 
+		return R.getMessage();
 	}
 
-    public void setLimit(double r) {
-        limit=r;
-    }
-    public double getLimit() {
-        return limit;
-    }
+   
 }

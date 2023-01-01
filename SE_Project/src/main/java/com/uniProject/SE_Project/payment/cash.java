@@ -3,16 +3,18 @@ import com.uniProject.SE_Project.user.UsersModel;
 import com.uniProject.SE_Project.user.Response;
 import org.springframework.stereotype.Service;
 
-@Service
 
-public class cash {
+
+public class cash implements ordinaryPayment {
 	Response R=new Response();
-
-	public String  Pay() {
-		R.setMessage("you pay cash ");
+	@Override
+	public String  Pay(double amount) {
+		R.setMessage("you pay cash " + amount);
 		
 		return R.getMessage();
 	}
+
+	
 	
 
 }
