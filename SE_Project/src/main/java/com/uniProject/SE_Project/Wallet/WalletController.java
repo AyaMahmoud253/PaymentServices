@@ -15,5 +15,5 @@ public class WalletController {
 	  w=new Wallet(added);
 	  return w.getWallet();
     }
-  
+	
 }
