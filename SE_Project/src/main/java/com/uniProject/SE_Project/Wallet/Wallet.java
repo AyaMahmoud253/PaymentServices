@@ -14,6 +14,7 @@ public class Wallet {
         double amount =u.getWalletAmount() +added ;
         u.setWalletAmount(amount);
     }
+    
     String getWallet()
     {
     	R.setMessage(" Your credit Wallet Before add: "+WalletBeforeadd+"\n"+ " Your Wallet Now: "+u.getWalletAmount()+WalletBeforeadd+"\n"+ " This From Your Credit ");

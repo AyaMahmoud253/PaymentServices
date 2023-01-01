@@ -1,4 +1,5 @@
 package com.uniProject.SE_Project.serviceProvider;
+/*
 public class we implements ServiceProvider{
     @Override
     public void provideService() {
@@ -17,4 +18,4 @@ public class we implements ServiceProvider{
 
 
 
-}
+}*/
