@@ -39,6 +39,7 @@ public class PaymentController {
     }
     @RequestMapping(value = "/pay/{paymentMethod}",method = RequestMethod.POST)
     public String paycredit(@PathVariable ("paymentMethod") String pMethod,@RequestBody Map<String,Object> form ){
+    	String m = pMethod;
     	Integer pID = Integer.parseInt(form.get("provider").toString());
     	ServiceProvider serviceProviderEntity = pRepo.findById(pID);
     	
@@ -47,17 +48,15 @@ public class PaymentController {
     	}
     	serviceProviderEntity.handle(form);
     	double amount = Double.parseDouble(form.get("Amount").toString());
-    	if(pMethod.toUpperCase() == "WALLET")
+    	if(m.equals("wallet"))
     	{
     		op = new walletPay();
     	}
-    	else if(pMethod.toUpperCase() == "CASH") {
+    	else if(m.equals("cash")) {
     		op = new cash();
-    		//System.out.println("else if");
     	}
     	else 
     		op = new credit();
-    		//System.out.println(pMethod);
     	
         return op.Pay(amount);
     }

@@ -11,7 +11,7 @@ public class credit implements ordinaryPayment{
 	 
 	@Override
 	public String  Pay(double amount) {
-		R.setMessage("you pay credit ");
+		R.setMessage("you pay credit "+amount);
 		
 		return R.getMessage();
 	}

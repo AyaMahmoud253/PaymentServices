@@ -15,7 +15,7 @@ public class walletPay implements ordinaryPayment {
 
     @Override
 	public String  Pay(double amount) {
-		R.setMessage("you pay cash ");
+		R.setMessage("you pay wallet "+amount);
 		/**if (walletA>amount) {
             double newWalletAmount = walletA - amount;
             R.setMessage("you paid"+amount);
