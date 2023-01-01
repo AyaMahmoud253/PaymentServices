@@ -5,7 +5,7 @@ import java.util.Map;
 public class Vodafone  extends ServiceProvider{
 	
 	public Vodafone() {
-       super(5,"Vodafone");
+       super(6,"Vodafone");
     }
 	@Override
 	public boolean checkForm(Map<String, Object> form) {
