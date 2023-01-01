@@ -4,9 +4,9 @@ public class RefundInformation {
 
     private int id;
     private double Refundtrans ;
-    public RefundInformation(int id,int RefundTrans) {
+    public RefundInformation(int id,int Refundtrans) {
     	this.id=id;
-    	this.Refundtrans=RefundTrans;
+    	this.Refundtrans=Refundtrans;
     }
     
     public void setId(int id) {
