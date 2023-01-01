@@ -9,6 +9,7 @@ public class RefundInformation {
     	this.Refundtrans=Refundtrans;
     }
     
+    
     public void setId(int id) {
         this.id = id;
     }
